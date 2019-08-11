@@ -1,0 +1,8 @@
+main.c:279:6:vTask1	16	static
+main.c:300:6:vTask2	16	static
+main.c:330:6:StartDefaultTask	8	static
+main.c:153:6:SystemClock_Config	96	static
+main.c:76:5:main	96	static
+main.c:270:6:vPrintString	0	static
+main.c:350:6:HAL_TIM_PeriodElapsedCallback	0	static
+main.c:367:6:Error_Handler	0	static

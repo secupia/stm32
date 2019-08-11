@@ -1,0 +1,5 @@
+InternalFlashFont.hpp:34:7:touchgfx::InternalFlashFont::~InternalFlashFont()	0	static
+FontGetters.cpp:15:30:touchgfx::InternalFlashFont& getFont_verdana_10_4bpp()	48	static
+FontGetters.cpp:27:30:touchgfx::InternalFlashFont& getFont_verdana_20_4bpp()	48	static
+FontGetters.cpp:39:30:touchgfx::InternalFlashFont& getFont_verdana_40_4bpp()	48	static
+InternalFlashFont.hpp:34:7:virtual touchgfx::InternalFlashFont::~InternalFlashFont()	8	static

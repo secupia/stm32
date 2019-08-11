@@ -1,0 +1,11 @@
+stm32f4xx_hal_msp.c:64:6:HAL_MspInit	16	static
+stm32f4xx_hal_msp.c:88:6:HAL_DMA2D_MspInit	8	static
+stm32f4xx_hal_msp.c:110:6:HAL_DMA2D_MspDeInit	0	static
+stm32f4xx_hal_msp.c:132:6:HAL_I2C_MspInit	56	static
+stm32f4xx_hal_msp.c:176:6:HAL_I2C_MspDeInit	8	static
+stm32f4xx_hal_msp.c:207:6:HAL_LTDC_MspInit	72	static
+stm32f4xx_hal_msp.c:318:6:HAL_LTDC_MspDeInit	8	static
+stm32f4xx_hal_msp.c:380:6:HAL_SPI_MspInit	40	static
+stm32f4xx_hal_msp.c:417:6:HAL_SPI_MspDeInit	0	static
+stm32f4xx_hal_msp.c:548:6:HAL_SDRAM_MspInit	48	static
+stm32f4xx_hal_msp.c:634:6:HAL_SDRAM_MspDeInit	8	static
