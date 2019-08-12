@@ -73,6 +73,7 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+UART_HandleTypeDef huart1;
 
 osThreadId defaultTaskHandle;
 /* USER CODE BEGIN PV */
@@ -93,7 +94,8 @@ void StartDefaultTask(void const * argument);
 /* USER CODE BEGIN 0 */
 xQueueHandle  xQueue;
 
-void vSenderTask(void *pvParameter);
+void vSenderTask1(void *pvParameter);
+void vSenderTask2(void *pvParameter);
 void vReceiverTask(void *pvParameter);
 /* USER CODE END 0 */
 
@@ -149,8 +151,8 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  xTaskCreate(vSenderTask, "Sender1", 1000, (void *)1, 1, NULL);
-  xTaskCreate(vSenderTask, "Sender2", 1000, (void *)2, 1, NULL);
+  xTaskCreate(vSenderTask1, "Sender1", 1000, (void *)1, 1, NULL);
+  xTaskCreate(vSenderTask2, "Sender2", 1000, (void *)2, 1, NULL);
 
   xTaskCreate(vReceiverTask, "Receiver", 1000, NULL, 2, NULL);
   /* USER CODE END RTOS_THREADS */
@@ -238,39 +240,21 @@ static void MX_USART1_UART_Init(void)
 
   /* USER CODE END USART1_Init 0 */
 
-  LL_USART_InitTypeDef USART_InitStruct = {0};
-
-  LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-  /* Peripheral clock enable */
-  LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_USART1);
-  
-  LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_GPIOA);
-  /**USART1 GPIO Configuration  
-  PA9   ------> USART1_TX
-  PA10   ------> USART1_RX 
-  */
-  GPIO_InitStruct.Pin = LL_GPIO_PIN_9|LL_GPIO_PIN_10;
-  GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
-  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_VERY_HIGH;
-  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-  GPIO_InitStruct.Pull = LL_GPIO_PULL_UP;
-  GPIO_InitStruct.Alternate = LL_GPIO_AF_7;
-  LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
   /* USER CODE BEGIN USART1_Init 1 */
 
   /* USER CODE END USART1_Init 1 */
-  USART_InitStruct.BaudRate = 115200;
-  USART_InitStruct.DataWidth = LL_USART_DATAWIDTH_8B;
-  USART_InitStruct.StopBits = LL_USART_STOPBITS_1;
-  USART_InitStruct.Parity = LL_USART_PARITY_NONE;
-  USART_InitStruct.TransferDirection = LL_USART_DIRECTION_TX_RX;
-  USART_InitStruct.HardwareFlowControl = LL_USART_HWCONTROL_NONE;
-  USART_InitStruct.OverSampling = LL_USART_OVERSAMPLING_16;
-  LL_USART_Init(USART1, &USART_InitStruct);
-  LL_USART_ConfigAsyncMode(USART1);
-  LL_USART_Enable(USART1);
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
   /* USER CODE BEGIN USART1_Init 2 */
 
   /* USER CODE END USART1_Init 2 */
@@ -292,10 +276,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOG_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOG, LED3_Pin|LED4_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOG, Receiver_Pin|Sender2_Pin|Sender1_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : LED3_Pin LED4_Pin */
-  GPIO_InitStruct.Pin = LED3_Pin|LED4_Pin;
+  /*Configure GPIO pins : Receiver_Pin Sender2_Pin Sender1_Pin */
+  GPIO_InitStruct.Pin = Receiver_Pin|Sender2_Pin|Sender1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -304,6 +288,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+/*
 void vPrintString(char *pStr)
 {
     while(*pStr){
@@ -312,8 +297,8 @@ void vPrintString(char *pStr)
         pStr++;
     }
 }
-
-void vSenderTask(void *pvParameters)
+*/
+void vSenderTask1(void *pvParameters)
 {
 
 	long lValueToSend;
@@ -322,17 +307,40 @@ void vSenderTask(void *pvParameters)
 
     for(;;)
     {
-    	HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
+    	HAL_GPIO_WritePin(Sender1_GPIO_Port, Sender1_Pin, GPIO_PIN_SET);
 
     	xStatus = xQueueSendToBack(xQueue, &lValueToSend, 0);
     	if(xStatus != pdPASS)
     	{
-    		vPrintString("could not send to the queue. \r \n");
+    		HAL_UART_Transmit(&huart1, (uint8_t *)"could not send to the queue.\r\n", strlen("could not send to the queue.\r\n"), 0xFFFFFFFF);
     	}
       	taskYIELD();
 
       	//vTaskDelay(250 / portTICK_RATE_MS );
-        HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(Sender1_GPIO_Port, Sender1_Pin, GPIO_PIN_RESET);
+    }
+}
+
+void vSenderTask2(void *pvParameters)
+{
+
+	long lValueToSend;
+	portBASE_TYPE xStatus;
+	lValueToSend = (long)pvParameters;
+
+    for(;;)
+    {
+    	HAL_GPIO_WritePin(Sender2_GPIO_Port, Sender2_Pin, GPIO_PIN_SET);
+
+    	xStatus = xQueueSendToBack(xQueue, &lValueToSend, 0);
+    	if(xStatus != pdPASS)
+    	{
+    		HAL_UART_Transmit(&huart1, (uint8_t *)"could not send to the queue.\r\n", strlen("could not send to the queue.\r\n"), 0xFFFFFFFF);
+    	}
+      	taskYIELD();
+
+      	//vTaskDelay(250 / portTICK_RATE_MS );
+        HAL_GPIO_WritePin(Sender2_GPIO_Port, Sender2_Pin, GPIO_PIN_RESET);
     }
 }
 
@@ -344,11 +352,11 @@ void vReceiverTask(void *pvParameters)
 
     for(;;)
     {
-      HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);		// Start Task
+      HAL_GPIO_WritePin(Receiver_GPIO_Port, Receiver_Pin, GPIO_PIN_SET);
 
       if(uxQueueMessagesWaiting(xQueue) !=  0)
       {
-        vPrintString("Queue should have been empty. \r \n");
+    	  HAL_UART_Transmit(&huart1, (uint8_t *)"Queue should have been empty.\r\n", strlen("Queue should have been empty.\r\n"), 0xFFFFFFFF);
       }
 
       xStatus = xQueueReceive(xQueue, &lReceivedValue, xTicksToWait);
@@ -356,17 +364,16 @@ void vReceiverTask(void *pvParameters)
       if(xStatus == pdPASS)
       {
     	  lReceivedValue += '0';
-    	  vPrintString((char *)&lReceivedValue);
-    	  vPrintString((char *)"\r \n");
-    	  //vPrintString("Received PASS \r \n");
+    	  HAL_UART_Transmit(&huart1, (uint8_t *)&lReceivedValue, 1, 0xFFFFFFFF);
+    	  HAL_UART_Transmit(&huart1, (uint8_t *)"\r\n", strlen("\r\n"), 0xFFFFFFFF);
       }
       else
       {
-    	  vPrintString("could not receive from the queue. \r \n");
+    	  HAL_UART_Transmit(&huart1, (uint8_t *)"could not receive from the queue.\r\n", strlen("could not receive from the queue.\r\n"), 0xFFFFFFFF);
       }
 
       //vTaskDelay(200 / portTICK_RATE_MS );
-      HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_RESET);		// End of Task
+      HAL_GPIO_WritePin(Receiver_GPIO_Port, Receiver_Pin, GPIO_PIN_RESET);
     }
 }
 

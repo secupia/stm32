@@ -59,17 +59,6 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
-#include "stm32f4xx_ll_usart.h"
-#include "stm32f4xx_ll_rcc.h"
-#include "stm32f4xx_ll_bus.h"
-#include "stm32f4xx_ll_cortex.h"
-#include "stm32f4xx_ll_system.h"
-#include "stm32f4xx_ll_utils.h"
-#include "stm32f4xx_ll_pwr.h"
-#include "stm32f4xx_ll_gpio.h"
-#include "stm32f4xx_ll_dma.h"
-
-#include "stm32f4xx_ll_exti.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -99,10 +88,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED3_Pin GPIO_PIN_13
-#define LED3_GPIO_Port GPIOG
-#define LED4_Pin GPIO_PIN_14
-#define LED4_GPIO_Port GPIOG
+#define Receiver_Pin GPIO_PIN_9
+#define Receiver_GPIO_Port GPIOG
+#define Sender2_Pin GPIO_PIN_13
+#define Sender2_GPIO_Port GPIOG
+#define Sender1_Pin GPIO_PIN_14
+#define Sender1_GPIO_Port GPIOG
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
