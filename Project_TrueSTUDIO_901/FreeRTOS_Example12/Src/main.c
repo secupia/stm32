@@ -93,18 +93,20 @@ void StartDefaultTask(void const * argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-xSemaphoreHandle xButtonUserSemaphore = NULL;
+xSemaphoreHandle xButtonUserSemaphore = NULL;	// Create semaphore variable with initial value "NULL"
 
-void vButtonTask(void *pvParameter);
+void vButtonTask(void *pvParameter);			// Define Task function
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)	// Interrupt Callback function
 {
+
   BaseType_t xHigerPriorityTaskWoken = pdFALSE;
 
   xSemaphoreGiveFromISR(xButtonUserSemaphore, &xHigerPriorityTaskWoken);
 
-  portYIELD_FROM_ISR(xHigerPriorityTaskWoken);
   HAL_UART_Transmit(&huart1, (uint8_t *)("Semaphore Give From ISR \r \n"), (uint16_t)strlen("Semaphore Give From ISR \r \n"), 0xFFFFFFFF);
+  portYIELD_FROM_ISR(xHigerPriorityTaskWoken);
+
 }
 /* USER CODE END 0 */
 
