@@ -151,8 +151,8 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  xTaskCreate(vSenderTask1, "Sender1", 1000, (void *)1, 1, NULL);
-  xTaskCreate(vSenderTask2, "Sender2", 1000, (void *)2, 1, NULL);
+  xTaskCreate(vSenderTask1, "Sender1", 1000, (void *)"A", 1, NULL);
+  xTaskCreate(vSenderTask1, "Sender2", 1000, (void *)"B", 1, NULL);
 
   xTaskCreate(vReceiverTask, "Receiver", 1000, NULL, 2, NULL);
   /* USER CODE END RTOS_THREADS */
@@ -310,14 +310,15 @@ void vSenderTask1(void *pvParameters)
     	HAL_GPIO_WritePin(Sender1_GPIO_Port, Sender1_Pin, GPIO_PIN_SET);
 
     	xStatus = xQueueSendToBack(xQueue, &lValueToSend, 0);
+
     	if(xStatus != pdPASS)
     	{
     		HAL_UART_Transmit(&huart1, (uint8_t *)"could not send to the queue.\r\n", strlen("could not send to the queue.\r\n"), 0xFFFFFFFF);
     	}
-      	taskYIELD();
+     	taskYIELD();
 
       	//vTaskDelay(250 / portTICK_RATE_MS );
-        HAL_GPIO_WritePin(Sender1_GPIO_Port, Sender1_Pin, GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(Sender1_GPIO_Port, Sender1_Pin, GPIO_PIN_RESET);
     }
 }
 
