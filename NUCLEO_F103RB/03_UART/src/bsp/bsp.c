@@ -6,6 +6,12 @@
  */
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
 #include "bsp.h"
 
 
@@ -27,6 +33,11 @@ void bspInit(void)
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
 /**
   * @brief  System Clock Configuration
   *         The system Clock is configured as follow :
@@ -78,3 +89,7 @@ void SystemClock_Config(void)
     while(1);
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092

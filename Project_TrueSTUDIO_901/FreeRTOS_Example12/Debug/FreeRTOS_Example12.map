@@ -762,6 +762,77 @@ Discarded input sections
                 0x00000000        0xc Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_uart.o
  .text.HAL_UART_GetError
                 0x00000000        0x4 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_uart.o
+ .text          0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_dma.o
+ .data          0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_dma.o
+ .bss           0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_dma.o
+ .debug_line    0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_dma.o
+ .debug_str     0x00000000      0x132 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_dma.o
+ .comment       0x00000000       0x7d Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_dma.o
+ .ARM.attributes
+                0x00000000       0x39 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_dma.o
+ .text          0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_exti.o
+ .data          0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_exti.o
+ .bss           0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_exti.o
+ .debug_line    0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_exti.o
+ .debug_str     0x00000000      0x133 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_exti.o
+ .comment       0x00000000       0x7d Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_exti.o
+ .ARM.attributes
+                0x00000000       0x39 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_exti.o
+ .text          0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_gpio.o
+ .data          0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_gpio.o
+ .bss           0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_gpio.o
+ .debug_line    0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_gpio.o
+ .debug_str     0x00000000      0x133 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_gpio.o
+ .comment       0x00000000       0x7d Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_gpio.o
+ .ARM.attributes
+                0x00000000       0x39 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_gpio.o
+ .text          0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_rcc.o
+ .data          0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_rcc.o
+ .bss           0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_rcc.o
+ .debug_line    0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_rcc.o
+ .debug_str     0x00000000      0x132 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_rcc.o
+ .comment       0x00000000       0x7d Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_rcc.o
+ .ARM.attributes
+                0x00000000       0x39 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_rcc.o
+ .text          0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_usart.o
+ .data          0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_usart.o
+ .bss           0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_usart.o
+ .debug_line    0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_usart.o
+ .debug_str     0x00000000      0x134 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_usart.o
+ .comment       0x00000000       0x7d Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_usart.o
+ .ARM.attributes
+                0x00000000       0x39 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_usart.o
+ .text          0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .data          0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .bss           0x00000000        0x0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .text.UTILS_SetFlashLatency.part.0
+                0x00000000      0x104 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .text.UTILS_PLL_IsBusy
+                0x00000000       0x24 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .text.UTILS_EnablePLLAndSwitchSystem
+                0x00000000       0x9c Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .text.LL_Init1msTick
+                0x00000000       0x1c Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .text.LL_mDelay
+                0x00000000       0x28 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .text.LL_SetSystemCoreClock
+                0x00000000        0xc Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .text.LL_PLL_ConfigSystemClock_HSI
+                0x00000000       0x78 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .text.LL_PLL_ConfigSystemClock_HSE
+                0x00000000       0x98 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .debug_info    0x00000000     0x1438 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .debug_abbrev  0x00000000      0x34e Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .debug_loc     0x00000000      0x6d1 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .debug_aranges
+                0x00000000       0x58 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .debug_ranges  0x00000000       0x90 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .debug_line    0x00000000      0x4fa Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .debug_str     0x00000000      0xbaa Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .comment       0x00000000       0x7d Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .debug_frame   0x00000000       0xe0 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
+ .ARM.attributes
+                0x00000000       0x39 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
  .text          0x00000000        0x0 Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.o
  .data          0x00000000        0x0 Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.o
  .bss           0x00000000        0x0 Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.o
@@ -1109,6 +1180,12 @@ LOAD Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_rcc_ex.o
 LOAD Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim.o
 LOAD Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_tim_ex.o
 LOAD Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_uart.o
+LOAD Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_dma.o
+LOAD Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_exti.o
+LOAD Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_gpio.o
+LOAD Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_rcc.o
+LOAD Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_usart.o
+LOAD Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
 LOAD Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.o
 LOAD Middlewares\Third_Party\FreeRTOS\Source\croutine.o
 LOAD Middlewares\Third_Party\FreeRTOS\Source\event_groups.o

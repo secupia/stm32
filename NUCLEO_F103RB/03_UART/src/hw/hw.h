@@ -8,8 +8,15 @@
 #ifndef SRC_HW_HW_H_
 #define SRC_HW_HW_H_
 
+<<<<<<< HEAD
 #include "hw_def.h"
 
+=======
+
+#include "hw_def.h"
+
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
 #include "core/led.h"
 #include "core/button.h"
 #include "core/uart.h"
@@ -20,4 +27,8 @@ void hwInit(void);
 void delay(uint32_t time_ms);
 uint32_t millis(void);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
 #endif /* SRC_HW_HW_H_ */

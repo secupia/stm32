@@ -104,7 +104,7 @@ void vReceiverTask(void *pvParameter);
   * @retval int
   */
 int main(void)
- {
+{
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -151,16 +151,16 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  xTaskCreate(vSenderTask1, "Sender1", 1000, (void *)1, 1, NULL);
-  xTaskCreate(vSenderTask2, "Sender2", 1000, (void *)2, 1, NULL);
+  xTaskCreate(vSenderTask1, "Sender1", 1000, (void *)"A", 1, NULL);
+  xTaskCreate(vSenderTask1, "Sender2", 1000, (void *)"B", 1, NULL);
 
   xTaskCreate(vReceiverTask, "Receiver", 1000, NULL, 2, NULL);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
-  xQueue = xQueueCreate(5, sizeof(long));
-
+  //xQueue = xQueueCreate(5, sizeof(long));
+  xQueue = xQueueCreate(100, sizeof(long));
   /* USER CODE END RTOS_QUEUES */
  
 
@@ -310,13 +310,15 @@ void vSenderTask1(void *pvParameters)
     	HAL_GPIO_WritePin(Sender1_GPIO_Port, Sender1_Pin, GPIO_PIN_SET);
 
     	xStatus = xQueueSendToBack(xQueue, &lValueToSend, 0);
+
     	if(xStatus != pdPASS)
     	{
     		HAL_UART_Transmit(&huart1, (uint8_t *)"could not send to the queue.\r\n", strlen("could not send to the queue.\r\n"), 0xFFFFFFFF);
     	}
-      	taskYIELD();
+     	taskYIELD();
 
-        HAL_GPIO_WritePin(Sender1_GPIO_Port, Sender1_Pin, GPIO_PIN_RESET);
+      	//vTaskDelay(250 / portTICK_RATE_MS );
+      HAL_GPIO_WritePin(Sender1_GPIO_Port, Sender1_Pin, GPIO_PIN_RESET);
     }
 }
 
@@ -338,6 +340,7 @@ void vSenderTask2(void *pvParameters)
     	}
       	taskYIELD();
 
+      	//vTaskDelay(250 / portTICK_RATE_MS );
         HAL_GPIO_WritePin(Sender2_GPIO_Port, Sender2_Pin, GPIO_PIN_RESET);
     }
 }
@@ -362,7 +365,6 @@ void vReceiverTask(void *pvParameters)
       if(xStatus == pdPASS)
       {
     	  lReceivedValue += '0';
-    	  HAL_UART_Transmit(&huart1, (uint8_t *)"Received Value = ", strlen("Received Value = "), 0xFFFFFFFF);
     	  HAL_UART_Transmit(&huart1, (uint8_t *)&lReceivedValue, 1, 0xFFFFFFFF);
     	  HAL_UART_Transmit(&huart1, (uint8_t *)"\r\n", strlen("\r\n"), 0xFFFFFFFF);
       }
@@ -371,6 +373,7 @@ void vReceiverTask(void *pvParameters)
     	  HAL_UART_Transmit(&huart1, (uint8_t *)"could not receive from the queue.\r\n", strlen("could not receive from the queue.\r\n"), 0xFFFFFFFF);
       }
 
+      //vTaskDelay(200 / portTICK_RATE_MS );
       HAL_GPIO_WritePin(Receiver_GPIO_Port, Receiver_Pin, GPIO_PIN_RESET);
     }
 }

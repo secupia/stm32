@@ -1,15 +1,24 @@
 /*
  * uart.c
  *
+<<<<<<< HEAD
  *  Created on: 2019. 9. 11.
  *      Author: Marshall
  */
 
+=======
+ *  Created on: 2018. 5. 19.
+ *      Author: Baram
+ */
+
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
 #include <stdarg.h>
 
 #include "uart.h"
 #include "core/qbuffer.h"
 
+<<<<<<< HEAD
 #define UART_MODE_POLLING   0
 #define UART_MODE_INTERRUPT 1
 #define UART_MODE_DMA       2
@@ -33,15 +42,59 @@ typedef struct
 
 uart_t uart_tbl[UART_MAX_CH];
 uint8_t uart_rx_qbuf[UART_MAX_CH][UART_RX_BUF_LENGTH];
+=======
+
+#define UART_MODE_POLLING       0
+#define UART_MODE_INTERRUPT     1
+#define UART_MODE_DMA           2
+
+
+#define UART_RX_BUF_LENGTH      16
+#define UART_RX_QBUF_LENGTH     256
+
+
+
+typedef struct
+{
+  bool     is_open;
+  uint32_t baud;
+  uint8_t  tx_mode;
+  uint8_t  rx_mode;
+
+  uint8_t  rx_buf[UART_RX_BUF_LENGTH];
+
+  qbuffer_t qbuffer_rx;
+
+
+  UART_HandleTypeDef handle;
+} uart_t;
+
+
+
+uart_t   uart_tbl[UART_MAX_CH];
+uint8_t  uart_rx_qbuf[UART_MAX_CH][UART_RX_BUF_LENGTH];
+
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
 
 static void uartStartRx(uint8_t channel);
 static void uartRxHandler(uint8_t channel);
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
 void uartInit(void)
 {
   uint8_t i;
 
+<<<<<<< HEAD
   for(i=0; i<UART_MAX_CH; i++)
+=======
+
+  for (i=0; i<UART_MAX_CH; i++)
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
   {
     uart_tbl[i].is_open = false;
     uart_tbl[i].rx_mode = UART_MODE_POLLING;
@@ -59,6 +112,7 @@ bool uartOpen(uint8_t channel, uint32_t baud)
     case _DEF_UART1:
       p_uart = &uart_tbl[channel];
 
+<<<<<<< HEAD
       p_uart->handle.Instance = USART2;
       p_uart->handle.Init.BaudRate = baud;
       p_uart->handle.Init.WordLength = UART_WORDLENGTH_8B;
@@ -67,11 +121,23 @@ bool uartOpen(uint8_t channel, uint32_t baud)
       p_uart->handle.Init.HwFlowCtl = UART_HWCONTROL_NONE;
       p_uart->handle.Init.Mode = UART_MODE_TX_RX;
 
+=======
+      p_uart->handle.Instance        = USART2;
+      p_uart->handle.Init.BaudRate   = baud;
+      p_uart->handle.Init.WordLength = UART_WORDLENGTH_8B;
+      p_uart->handle.Init.StopBits   = UART_STOPBITS_1;
+      p_uart->handle.Init.Parity     = UART_PARITY_NONE;
+      p_uart->handle.Init.HwFlowCtl  = UART_HWCONTROL_NONE;
+      p_uart->handle.Init.Mode       = UART_MODE_TX_RX;
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
       if(HAL_UART_DeInit(&p_uart->handle) != HAL_OK)
       {
         break;
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
       if(HAL_UART_Init(&p_uart->handle) != HAL_OK)
       {
         break;
@@ -79,9 +145,15 @@ bool uartOpen(uint8_t channel, uint32_t baud)
 
       qbufferCreate(&p_uart->qbuffer_rx, uart_rx_qbuf[channel], UART_RX_BUF_LENGTH);
 
+<<<<<<< HEAD
       p_uart->rx_mode = UART_MODE_INTERRUPT;
       p_uart->baud = baud;
       p_uart->is_open = true;
+=======
+      p_uart->rx_mode  = UART_MODE_INTERRUPT;
+      p_uart->baud     = baud;
+      p_uart->is_open  = true;
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
 
       uartStartRx(channel);
       break;
@@ -94,6 +166,10 @@ void uartStartRx(uint8_t channel)
 {
   uart_t *p_uart = &uart_tbl[channel];
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
   if(p_uart->rx_mode == UART_MODE_INTERRUPT)
   {
     HAL_UART_Receive_IT(&p_uart->handle, p_uart->rx_buf, 1);
@@ -104,12 +180,22 @@ bool uartClose(uint8_t channel)
 {
   bool ret = false;
 
+<<<<<<< HEAD
   if(channel >= UART_MAX_CH)
+=======
+
+  if (channel >= UART_MAX_CH)
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
   {
     return false;
   }
 
+<<<<<<< HEAD
   if(uart_tbl[channel].is_open == true)
+=======
+
+  if (uart_tbl[channel].is_open == true)
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
   {
     if(HAL_UART_DeInit(&uart_tbl[channel].handle) == HAL_OK)
     {
@@ -117,12 +203,20 @@ bool uartClose(uint8_t channel)
     }
   }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
   return ret;
 }
 
 uint32_t uartAvailable(uint8_t channel)
 {
+<<<<<<< HEAD
   if(channel >= UART_MAX_CH)
+=======
+  if (channel >= UART_MAX_CH)
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
   {
     return 0;
   }
@@ -140,16 +234,27 @@ void uartFlush(uint8_t channel)
 
 void uartPutch(uint8_t channel, uint8_t ch)
 {
+<<<<<<< HEAD
   uartWrite(channel, &ch, 1);
+=======
+  uartWrite(channel, &ch, 1 );
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
 }
 
 uint8_t uartGetch(uint8_t channel)
 {
   uint8_t ret = 0;
 
+<<<<<<< HEAD
   while(1)
   {
     if(uartAvailable(channel) > 0)
+=======
+
+  while(1)
+  {
+    if (uartAvailable(channel) > 0)
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
     {
       ret = uartRead(channel);
       break;
@@ -164,9 +269,16 @@ int32_t uartWrite(uint8_t channel, uint8_t *p_data, uint32_t length)
   int32_t ret = 0;
   uart_t *p_uart = &uart_tbl[channel];
 
+<<<<<<< HEAD
   if(p_uart->rx_mode == UART_MODE_INTERRUPT)
   {
     if(HAL_UART_Transmit(&p_uart->handle, (uint8_t*)p_data, length, 1000) == HAL_OK)
+=======
+
+  if (p_uart->rx_mode == UART_MODE_INTERRUPT)
+  {
+    if (HAL_UART_Transmit(&p_uart->handle, (uint8_t*)p_data, length, 1000) == HAL_OK)
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
     {
       ret = length;
     }
@@ -180,11 +292,20 @@ uint8_t uartRead(uint8_t channel)
   uint8_t ret = 0;
   uart_t *p_uart = &uart_tbl[channel];
 
+<<<<<<< HEAD
   if(p_uart->rx_mode == UART_MODE_INTERRUPT)
+=======
+
+  if (p_uart->rx_mode == UART_MODE_INTERRUPT)
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
   {
     qbufferRead(&p_uart->qbuffer_rx, &ret, 1);
   }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
   return ret;
 }
 
@@ -196,13 +317,20 @@ int32_t uartPrintf(uint8_t channel, const char *fmt, ...)
   int32_t len;
   char print_buffer[256];
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
   len = vsnprintf(print_buffer, 255, fmt, arg);
   va_end (arg);
 
   ret = uartWrite(channel, (uint8_t *)print_buffer, len);
 
   return ret;
+<<<<<<< HEAD
 
+=======
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
 }
 
 void uartRxHandler(uint8_t channel)
@@ -309,3 +437,7 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef *huart)
     HAL_NVIC_DisableIRQ(USART2_IRQn);
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092

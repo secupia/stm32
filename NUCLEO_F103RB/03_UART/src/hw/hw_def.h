@@ -11,4 +11,8 @@
 #include "def.h"
 #include "bsp.h"
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> af0767fca0f1972362e5186eb10742e60df9d092
 #endif /* SRC_HW_HW_DEF_H_ */
