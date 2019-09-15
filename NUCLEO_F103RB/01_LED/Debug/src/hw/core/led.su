@@ -1,0 +1,4 @@
+led.c:12:6:ledInit	24	static
+led.c:25:6:ledOn	8	static
+led.c:31:6:ledOff	8	static
+led.c:37:6:ledToggle	8	static
