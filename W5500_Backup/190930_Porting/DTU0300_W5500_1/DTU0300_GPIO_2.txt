@@ -1,0 +1,80 @@
+Configuration	DTU0300_GPIO_2
+STM32CubeMX 	5.2.0
+Date	09/24/2019
+MCU	STM32F103ZETx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+SPI1	Full-Duplex Master	SPI1_MISO	PA6
+SPI1	Full-Duplex Master	SPI1_MOSI	PA7
+SPI1	Full-Duplex Master	SPI1_SCK	PA5
+SYS	Serial Wire	SYS_JTCK-SWCLK	PA14
+SYS	Serial Wire	SYS_JTMS-SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+USART2	Asynchronous	USART2_RX	PA3
+USART2	Asynchronous	USART2_TX	PA2
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+36	PA2	USART2_TX	
+37	PA3	USART2_RX	
+40	PA4	GPIO_Output	W5500_CS
+41	PA5	SPI1_SCK	SPI1_SCK
+42	PA6	SPI1_MISO	SPI1_MISO
+43	PA7	SPI1_MOSI	SPI1_MOSI
+44	PC4	GPIO_Output	W5500_RST
+105	PA13	SYS_JTMS-SWDIO	
+109	PA14	SYS_JTCK-SWCLK	
+117	PD3	GPIO_Output	LED_SOCKET
+PERIPHERALS	MODES	FUNCTIONS	PINS
+SPI1	Full-Duplex Master	SPI1_MISO	PA6
+SPI1	Full-Duplex Master	SPI1_MOSI	PA7
+SPI1	Full-Duplex Master	SPI1_SCK	PA5
+SYS	Serial Wire	SYS_JTCK-SWCLK	PA14
+SYS	Serial Wire	SYS_JTMS-SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+USART2	Asynchronous	USART2_RX	PA3
+USART2	Asynchronous	USART2_TX	PA2
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+36	PA2	USART2_TX	
+37	PA3	USART2_RX	
+40	PA4	GPIO_Output	W5500_CS
+41	PA5	SPI1_SCK	SPI1_SCK
+42	PA6	SPI1_MISO	SPI1_MISO
+43	PA7	SPI1_MOSI	SPI1_MOSI
+44	PC4	GPIO_Output	W5500_RST
+105	PA13	SYS_JTMS-SWDIO	
+109	PA14	SYS_JTCK-SWCLK	
+117	PD3	GPIO_Output	LED_SOCKET
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : DTU0300_GPIO_2
+Project Folder : D:\Project_STM32CubeMX_520\DTU0300_GPIO_2
+Toolchain / IDE : TrueSTUDIO
+Firmware Package Name and Version : STM32Cube FW_F1 V1.7.0
+
+
+Code Generation Settings : 
+STM32Cube Firmware Library Package : Copy only the necessary library files
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : No
+Backup previously generated files when re-generating : No
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : No
+
+
+Toolchains Settings : 
+Compiler Optimizations : 
+
+
+
+
+
