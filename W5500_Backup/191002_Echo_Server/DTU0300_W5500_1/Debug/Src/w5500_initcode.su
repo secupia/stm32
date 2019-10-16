@@ -1,0 +1,8 @@
+w5500_initcode.c:11:9:W5500_dataRead	24	static
+w5500_initcode.c:19:6:W5500_dataSend	16	static
+w5500_initcode.c:25:6:W5500_CS_select	4	static
+w5500_initcode.c:31:6:W5500_CS_deselect	4	static
+w5500_initcode.c:37:5:isLinked	8	static
+w5500_initcode.c:42:6:W5500_hw_Rst	16	static
+w5500_initcode.c:55:6:W5500_info	8	static
+w5500_initcode.c:60:9:W5500_init	40	static

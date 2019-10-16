@@ -1,0 +1,4 @@
+spi.c:32:6:MX_SPI2_Init	8	static
+spi.c:54:6:HAL_SPI_MspInit	32	static
+spi.c:100:6:HAL_SPI_MspDeInit	8	static
+spi.c:127:6:spi_proc	1040	static

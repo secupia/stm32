@@ -1,0 +1,86 @@
+Configuration	DTU300_V1
+STM32CubeMX 	5.2.0
+Date	10/14/2019
+MCU	STM32F103ZETx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+RCC	Crystal/Ceramic Resonator	RCC_OSC_IN	OSC_IN
+RCC	Crystal/Ceramic Resonator	RCC_OSC_OUT	OSC_OUT
+SPI2	Receive Only Slave	SPI2_MOSI	PB15
+SPI2	Receive Only Slave	SPI2_SCK	PB13
+SPI2	Hardware NSS Input Signal	SPI2_NSS	PB12
+SYS	Serial Wire	SYS_JTCK-SWCLK	PA14
+SYS	Serial Wire	SYS_JTMS-SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+USART2	Asynchronous	USART2_RX	PA3
+USART2	Asynchronous	USART2_TX	PA2
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+23	OSC_IN	RCC_OSC_IN	
+24	OSC_OUT	RCC_OSC_OUT	
+36	PA2	USART2_TX	
+37	PA3	USART2_RX	
+73	PB12	SPI2_NSS	
+74	PB13	SPI2_SCK	
+76	PB15	SPI2_MOSI	
+105	PA13	SYS_JTMS-SWDIO	
+109	PA14	SYS_JTCK-SWCLK	
+116	PD2	GPIO_Output	COL_LED
+117	PD3	GPIO_Output	SOCKET_LED
+PERIPHERALS	MODES	FUNCTIONS	PINS
+RCC	Crystal/Ceramic Resonator	RCC_OSC_IN	OSC_IN
+RCC	Crystal/Ceramic Resonator	RCC_OSC_OUT	OSC_OUT
+SPI2	Receive Only Slave	SPI2_MOSI	PB15
+SPI2	Receive Only Slave	SPI2_SCK	PB13
+SPI2	Hardware NSS Input Signal	SPI2_NSS	PB12
+SYS	Serial Wire	SYS_JTCK-SWCLK	PA14
+SYS	Serial Wire	SYS_JTMS-SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+USART2	Asynchronous	USART2_RX	PA3
+USART2	Asynchronous	USART2_TX	PA2
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+23	OSC_IN	RCC_OSC_IN	
+24	OSC_OUT	RCC_OSC_OUT	
+36	PA2	USART2_TX	
+37	PA3	USART2_RX	
+73	PB12	SPI2_NSS	
+74	PB13	SPI2_SCK	
+76	PB15	SPI2_MOSI	
+105	PA13	SYS_JTMS-SWDIO	
+109	PA14	SYS_JTCK-SWCLK	
+116	PD2	GPIO_Output	COL_LED
+117	PD3	GPIO_Output	SOCKET_LED
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : DTU300_V1
+Project Folder : D:\Project_STM32CubeMX_520\DTU300_V1
+Toolchain / IDE : TrueSTUDIO
+Firmware Package Name and Version : STM32Cube FW_F1 V1.7.0
+
+
+Code Generation Settings : 
+STM32Cube Firmware Library Package : Copy only the necessary library files
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : Yes
+Backup previously generated files when re-generating : No
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : No
+
+
+Toolchains Settings : 
+Compiler Optimizations : 
+
+
+
+
+
