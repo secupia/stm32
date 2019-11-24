@@ -1,0 +1,10 @@
+blockStageControl.c:18:6:InitNewBlockPos	0	static
+blockStageControl.c:30:6:ChooseBlock	8	static
+blockStageControl.c:35:5:GetCurrentBlockIdx	0	static
+blockStageControl.c:40:6:DrawBlock	16	static
+blockStageControl.c:48:6:ShowBlock	32	static
+blockStageControl.c:65:6:DeleteBlock	32	static
+blockStageControl.c:82:6:BlockDown	16	static
+blockStageControl.c:89:6:ShiftLeft	16	static
+blockStageControl.c:96:6:ShiftRight	16	static
+blockStageControl.c:103:6:RotateBlock	16	static
