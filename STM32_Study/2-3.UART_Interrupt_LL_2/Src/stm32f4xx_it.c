@@ -212,6 +212,7 @@ void USART1_IRQHandler(void)
 
 /* USER CODE BEGIN 1 */
 __weak void USART_Rx_Callback(USART_TypeDef *USARTx)
+//void USART_Rx_Callback(USART_TypeDef *USARTx)
 {
 }
 
