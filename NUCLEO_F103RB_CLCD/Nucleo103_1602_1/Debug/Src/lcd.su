@@ -1,0 +1,5 @@
+lcd.c:37:13:DispDataWr	24	static
+lcd.c:58:13:DispCursorSet	16	static
+lcd.c:72:6:DispInit	8	static
+lcd.c:99:6:DispChar	8	static
+lcd.c:108:6:DispStr	16	static
