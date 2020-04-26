@@ -1,0 +1,7 @@
+lcd.c:140:6:lcd_write	24	static
+lcd.c:102:6:lcd_write_command	16	static
+lcd.c:49:6:Lcd_init	8	static
+lcd.c:23:19:Lcd_create	40	static
+lcd.c:80:6:Lcd_string	24	static
+lcd.c:69:6:Lcd_int	24	static
+lcd.c:91:6:Lcd_cursor	0	static
