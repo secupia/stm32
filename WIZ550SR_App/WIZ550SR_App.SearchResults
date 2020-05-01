@@ -1,0 +1,21 @@
+---- do_udp_config Matches (5 in 3 files) ----
+ConfigMessage.c (src\configuration):456
+void do_udp_config(uint8_t sock)
+{
+	uint8_t sckState;
+ConfigMessage.h (src\configuration):194
+void do_udp_config(uint8_t sock);
+void do_udp_configex(uint8_t sock);
+void reply_firmware_upload_done(uint8_t sock);
+Main.c (src):144
+			do_udp_config(SOCK_CONFIG);
+		}
+		display_Net_Info();
+Main.c (src):166
+			do_udp_config(SOCK_CONFIG);
+
+			if(value->options.dhcp_use)
+Main.c (src):196
+		do_udp_config(SOCK_CONFIG);
+#endif
+
