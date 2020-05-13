@@ -1,0 +1,96 @@
+Configuration	Nucleo103_1602_1
+STM32CubeMX 	5.6.0
+Date	05/13/2020
+MCU	STM32F103RBTx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+ADC1	IN0	ADC1_IN0	PA0-WKUP
+RCC	Crystal/Ceramic Resonator	RCC_OSC32_IN	PC14-OSC32_IN
+RCC	Crystal/Ceramic Resonator	RCC_OSC32_OUT	PC15-OSC32_OUT
+SYS	Trace Asynchronous Sw	SYS_JTMS-SWDIO	PA13
+SYS	Trace Asynchronous Sw	SYS_JTCK-SWCLK	PA14
+SYS	Trace Asynchronous Sw	SYS_JTDO-TRACESWO	PB3
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+USART2	Asynchronous	USART2_RX	PA3
+USART2	Asynchronous	USART2_TX	PA2
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+3	PC14-OSC32_IN	RCC_OSC32_IN	
+4	PC15-OSC32_OUT	RCC_OSC32_OUT	
+14	PA0-WKUP	ADC1_IN0	
+16	PA2	USART2_TX	
+17	PA3	USART2_RX	
+29	PB10	GPIO_Output	LCD_D6
+38	PC7	GPIO_Output	LCD_E
+41	PA8	GPIO_Output	LCD_D7
+42	PA9	GPIO_Output	LCD_RS
+46	PA13	SYS_JTMS-SWDIO	
+49	PA14	SYS_JTCK-SWCLK	
+55	PB3	SYS_JTDO-TRACESWO	
+56	PB4	GPIO_Output	LCD_D5
+57	PB5	GPIO_Output	LCD_D4
+58	PB6	GPIO_Output	LCD_BLC
+61	PB8*	I2C1_SCL	
+62	PB9*	I2C1_SDA	
+PERIPHERALS	MODES	FUNCTIONS	PINS
+ADC1	IN0	ADC1_IN0	PA0-WKUP
+RCC	Crystal/Ceramic Resonator	RCC_OSC32_IN	PC14-OSC32_IN
+RCC	Crystal/Ceramic Resonator	RCC_OSC32_OUT	PC15-OSC32_OUT
+SYS	Trace Asynchronous Sw	SYS_JTMS-SWDIO	PA13
+SYS	Trace Asynchronous Sw	SYS_JTCK-SWCLK	PA14
+SYS	Trace Asynchronous Sw	SYS_JTDO-TRACESWO	PB3
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+USART2	Asynchronous	USART2_RX	PA3
+USART2	Asynchronous	USART2_TX	PA2
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+3	PC14-OSC32_IN	RCC_OSC32_IN	
+4	PC15-OSC32_OUT	RCC_OSC32_OUT	
+14	PA0-WKUP	ADC1_IN0	
+16	PA2	USART2_TX	
+17	PA3	USART2_RX	
+29	PB10	GPIO_Output	LCD_D6
+38	PC7	GPIO_Output	LCD_E
+41	PA8	GPIO_Output	LCD_D7
+42	PA9	GPIO_Output	LCD_RS
+46	PA13	SYS_JTMS-SWDIO	
+49	PA14	SYS_JTCK-SWCLK	
+55	PB3	SYS_JTDO-TRACESWO	
+56	PB4	GPIO_Output	LCD_D5
+57	PB5	GPIO_Output	LCD_D4
+58	PB6	GPIO_Output	LCD_BLC
+61	PB8*	I2C1_SCL	
+62	PB9*	I2C1_SDA	
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : Nucleo103_1602_1
+Project Folder : D:\Project_TrueSTUDIO_901\Nucleo103_1602_1
+Toolchain / IDE : TrueSTUDIO
+Firmware Package Name and Version : STM32Cube FW_F1 V1.8.0
+
+
+Code Generation Settings : 
+STM32Cube MCU packages and embedded software packs : Copy only the necessary library files
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : No
+Backup previously generated files when re-generating : No
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : No
+
+
+Toolchains Settings : 
+Compiler Optimizations : 
+
+
+
+
+
