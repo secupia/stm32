@@ -1,0 +1,5 @@
+ymodem.c:255:10:UpdateCRC16	0	static
+ymodem.c:281:10:Cal_CRC16	16	static
+ymodem.c:301:9:CalcChecksum	0	static
+ymodem.c:320:19:Ymodem_Receive	72	static
+ymodem.c:469:19:Ymodem_Transmit	72	static
