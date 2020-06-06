@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1590893410 source:d:\products\codeblocks\hello4\main.c
+	<stdio.h>
+	<stdlib.h>
+
